@@ -9,3 +9,4 @@ insecure
 preserve-inputs
 showdown
 bootstrap
+coffeescript
