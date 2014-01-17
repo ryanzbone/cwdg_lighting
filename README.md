@@ -1,11 +1,11 @@
 # Meteor Lightning Talk
 
-It's a website! It's a talk!
+It's a website! It's a talk! 
 
 ## Features
 
 - Write your slides in markdown.
-- Switch between edit mode and presentation mode on the fly.
+- Switch between edit mode and presentation mode on the fly (theoretically).
 - Reorder slides by changing their slide number.
 
 ## How to run it locally
@@ -25,7 +25,7 @@ It's a website! It's a talk!
 #### Directions to run
 1. Clone it
 1. cd into directory
-1. `meteor run`
+1. `$ meteor run`
 
 ## TODO/Known issues
 - Next/Back button jankiness, have to click twice when switching directions.
