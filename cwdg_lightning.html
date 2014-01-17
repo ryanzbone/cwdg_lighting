@@ -1,5 +1,6 @@
 <head>
-  <title>cwdg_lightning</title>
+  <title>CWDG Meteor Talk</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -25,6 +26,7 @@
     </div>
   </div>
   {{/each}}
+  <a href="#" class="btn btn-primary" id="back">Back</a>
   <a href="#" class="btn btn-success" id="next">Next</a>
 </template>
 
@@ -37,10 +39,15 @@
 </template>
 
 <template name="slide_info">
-  <input type="text" id="title"/>
-  <input type="number" id="number"/>
-  <textarea id="content"/>
-  <input type="button" class="submit" value="submit"/>
+<form>
+  <fieldset>
+    <legend>Enter new slide information</legend>
+    <input type="number" id="number" placeholder="Slide number"/>
+    <label>Slide Content</label>
+    <textarea id="content" rows="5" placeholder="# You can use markdown!"></textarea></br>
+    <button class="btn submit" value="submit">Submit</button>
+  </fieldset>
+</form>
 </template>
 
 <template name="edit">
@@ -53,6 +60,7 @@
 <template name="slide_display">
 {{#each slides}}
 <div>
+  <h5>Slide {{number}}</h5>
   <div class="md-display-{{_id}}">
     {{#markdown}}{{content}}{{/markdown}}
   </div>
@@ -63,8 +71,5 @@
   </div>
 </div>
 <hr/>
-
 {{/each}}
 </template>
-
-
