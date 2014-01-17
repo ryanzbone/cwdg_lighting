@@ -1,6 +1,6 @@
 # Meteor Lightning Talk
 
-It's a website! It's a talk! 
+It's a website! It's a talk!
 
 ## Features
 
@@ -21,6 +21,7 @@ It's a website! It's a talk!
 - preserve-inputs
 - showdown
 - bootstrap
+- coffeescript
 
 #### Directions to run
 1. Clone it
