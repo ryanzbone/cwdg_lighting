@@ -3,11 +3,65 @@
 </head>
 
 <body>
-  {{> hello}}
+<div class="container">
+  {{> controls }}
+<h1>Meteor lighting talk in Meteor</h1>
+  <div id="the-editor">
+  {{> new_slide}}
+  {{> slide_display}}
+  </div>
+  <div id="presentation">
+    {{> presentation }}
+  </div>
+  </div>
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="presentation">
+<a href="#" id="next">Next</a>
+  {{#each slides}}
+  <div class="md-display-{{_id}} inactive">
+    {{#markdown}}{{content}}{{/markdown}}
+  </div>
+  {{/each}}
 </template>
+
+<template name="controls">
+  <a href="#" id="change-modes">Editor</a>
+</template>
+
+<template name="new_slide">
+{{>slide_info}}
+</template>
+
+<template name="slide_info">
+  <input type="text" id="title"/>
+  <input type="number" id="number"/>
+  <textarea id="content"/>
+  <input type="button" class="submit" value="submit"/>
+</template>
+
+<template name="edit">
+  <input type="text" class="title-{{_id}}"/>
+  <input type="number" class="number-{{_id}}"/>
+  <textarea class="content-{{_id}}"/>
+  <input type="button" class="save" value="Save"/>
+</template>
+
+<template name="slide_display">
+{{#each slides}}
+<div>
+  <div class="md-display-{{_id}}">
+    {{#markdown}}{{content}}{{/markdown}}
+  </div>
+  <a href="#" class="edit-link" id="{{_id}}">Edit</a>
+  <a href="#" class="delete-link" id="{{_id}}">Delete</a>
+  <div class="edit edit-{{_id}}">
+    {{>edit}}
+  </div>
+</div>
+<hr/>
+
+{{/each}}
+</template>
+
+
