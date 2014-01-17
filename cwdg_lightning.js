@@ -18,9 +18,20 @@ if (Meteor.isClient) {
     return Slides.find({}, {sort: { number: 1 } }).fetch();
   };
 
+  slide_number = 1;
+  previous_slide = '';
   Template.presentation.events({
     'click a#next' : function() {
-
+      var current_slide = Slides.findOne({number: slide_number});
+      if (current_slide !== undefined) {
+        var slide_class = '.present-' + current_slide._id;
+        $(previous_slide).toggle();
+        $(slide_class).toggle();
+        previous_slide = slide_class;
+        slide_number += 1;
+      } else {
+        slide_number = 1;
+      }
     }
   });
 

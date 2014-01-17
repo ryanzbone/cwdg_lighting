@@ -17,12 +17,15 @@
 </body>
 
 <template name="presentation">
-<a href="#" id="next">Next</a>
+</br>
   {{#each slides}}
-  <div class="md-display-{{_id}} inactive">
-    {{#markdown}}{{content}}{{/markdown}}
+  <div class="present-{{_id}} inactive">
+    <div class="hero-unit">
+      {{#markdown}}{{content}}{{/markdown}}
+    </div>
   </div>
   {{/each}}
+  <a href="#" class="btn btn-success" id="next">Next</a>
 </template>
 
 <template name="controls">
