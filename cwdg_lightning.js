@@ -32,6 +32,22 @@ if (Meteor.isClient) {
       } else {
         slide_number = 1;
       }
+    },
+
+    'click a#back' : function() {
+      var previous = Slides.findOne({number: slide_number-1});
+      var current_slide = Slides.findOne({number: slide_number});
+      if (previous !== undefined) {
+        var slide_class = '.present-' + previous._id;
+        $(previous_slide).toggle();
+        $(slide_class).toggle();
+        previous_slide = slide_class;
+        slide_number -= 1;
+      } else {
+        slide_number = 1;
+      }
+
+
     }
   });
 
@@ -53,6 +69,7 @@ if (Meteor.isClient) {
       $('.edit-' + id).find('.title-' + id).val(this.title);
       $('.edit-' + id).find('.number-' + id).val(this.number);
       $('.edit-' + id).find('.content-' + id).val(this.content);
+      return false;
     },
 
     'click a.delete-link' : function() {
@@ -73,6 +90,7 @@ if (Meteor.isClient) {
       $('#title').val('');
       $('#number').val('');
       $('#content').val('');
+      return false;
     }
   });
 
